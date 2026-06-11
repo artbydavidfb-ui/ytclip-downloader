@@ -95,9 +95,10 @@ def download_clip(url, output_dir):
     title = result.stdout.strip().split("\n")[0]
 
     # Find the downloaded file
-    files = [f for f in os.listdir(output_dir) if f.endswith(".mp4")]
+    video_exts = (".mp4", ".webm", ".mkv", ".mov", ".avi")
+    files = [f for f in os.listdir(output_dir) if f.endswith(video_exts)]
     if not files:
-        raise RuntimeError("No mp4 file found after download")
+        raise RuntimeError("No video file found after download")
 
     file_path = os.path.join(output_dir, files[0])
     return file_path, title
