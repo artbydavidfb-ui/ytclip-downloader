@@ -79,7 +79,7 @@ def download_clip(url, output_dir):
     """
     output_template = os.path.join(output_dir, "%(title)s.%(ext)s")
     cmd = [
-        "yt-dlp",
+        "python", "-m", "yt_dlp",
         "--format", "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best[height<=720]",
         "--merge-output-format", "mp4",
         "--output", output_template,
